@@ -1,4 +1,4 @@
-package com.blogbox.blogbox.v1;
+package com.blogbox;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BlogboxV1ApplicationTests {
+public class BlogboxApplicationTests {
 
 	@Test
 	public void contextLoads() {

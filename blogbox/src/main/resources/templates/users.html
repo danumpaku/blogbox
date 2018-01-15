@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>BlogBox</title>
+<link href="#" th:href="@{/css/blogbox_style.css}" rel="stylesheet" />
+</head>
+<body>
+
+	<header>
+		<div class="logo">
+			<img src="../static/imgs/logo.jpg" th:src="@{/imgs/logo.jpg}"
+				alt="logo_blogbox" />
+		</div>
+		<div class="buscar">
+			<img src="../static/imgs/buscar.jpg" th:src="@{/imgs/buscar.jpg}"
+				alt="buscar" />
+		</div>
+	</header>
+
+	<section class="main">
+		<div class="centered_content">
+			<ul class="usuarios">
+				<li th:each="perfil : ${perfiles}">
+					<a href="#" th:href="@{/posts?user=__${perfil.usuario.id}__}">
+						<div class= "usuarioBackground" th:style="'background:url(' + ${perfil.urlFotoPerfil} + ') no-repeat center; background-size: cover;'">
+							<h2 class="username" th:text="${perfil.usuario.nombre}"></h2>
+							<div class="geo">
+								<div class="geo_simbol">
+									<img src="../static/imgs/location.png" height="20px"
+										th:src="@{/imgs/location.png}" alt="Geo" />
+								</div>
+								<h3 class="city" th:text="${perfil.usuario.direccion.ciudad}"></h3>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<footer>
+		<div class="footerlogo">
+			<img src="../static/imgs/footerlogo.jpg"
+				th:src="@{/imgs/footerlogo.jpg}" alt="footerlogo_blogbox" />
+		</div>
+	</footer>
+
+</body>
+</html>

@@ -1,12 +1,12 @@
-package com.blogbox.blogbox.v1;
+package com.blogbox;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlogboxV1Application {
+public class BlogboxApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlogboxV1Application.class, args);
+		SpringApplication.run(BlogboxApplication.class, args);
 	}
 }
