@@ -101,7 +101,7 @@ public class UserServiceImpl implements UsersService {
 		List<Usuario> usuarios = getAllUsuarios();
 		Usuario usuario = null;
 		
-		if (usuarios != null && usuarios.isEmpty()){
+		if (usuarios != null && ! usuarios.isEmpty()){
 			for (Usuario u : usuarios){
 				if (u.getId() == idUsuario){
 					usuario = u;

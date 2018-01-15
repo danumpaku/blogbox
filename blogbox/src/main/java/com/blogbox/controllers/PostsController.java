@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.blogbox.logs.Logger;
+import com.blogbox.model.Usuario;
 import com.blogbox.services.PostsService;
 import com.blogbox.services.UsersService;
 
@@ -28,15 +29,18 @@ public class PostsController {
 	@Qualifier(SERV_POSTS)
 	PostsService postsService;
 	
-	@GetMapping("/")
+	@GetMapping("")
 	public ModelAndView getPostsByUser(@RequestParam("user") long userId){
 		
 		logger.info("getPostsByUser", "Buscando publicaciones de usuario id=" + userId);
 		
 		ModelAndView mav = new ModelAndView(VIEW_POSTS);
-		mav.addObject("usuario", usersService.getUsuarioById(userId));
+		Usuario usu = usersService.getUsuarioById(userId);
+		logger.info("debug", usu.toString());
+		mav.addObject("usuario", usu);
 		mav.addObject("posts", postsService.getAllPublicacionesByUsuario(userId));
 		return mav;
 	}
 	
 }
+
