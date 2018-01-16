@@ -44,7 +44,7 @@ public class Galeria {
 
 	@Override
 	public String toString() {
-		return "Album [id=" + id + ", idUsuario=" + idUsuario + ", titulo=" + titulo + "]";
+		return "GalleriaInfo [id=" + id + ", idUsuario=" + idUsuario + ", titulo=" + titulo + "]";
 	}
 	
 }

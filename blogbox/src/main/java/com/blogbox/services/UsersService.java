@@ -11,6 +11,8 @@ public interface UsersService {
 	
 	public List<Usuario> getAllUsuarios();
 	
-	public Usuario getUsuarioById(long idUsuario);
+	public Usuario getUsuarioById (long idUsuario);
+	
+	public Perfil getPerfilById(long idUsuario);
 	
 }

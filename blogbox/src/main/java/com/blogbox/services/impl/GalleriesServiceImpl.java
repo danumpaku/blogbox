@@ -22,7 +22,7 @@ public class GalleriesServiceImpl implements GalleriesService {
 	private static final Logger logger = new Logger(GalleriesServiceImpl.class);
 	
 	@Override
-	public List<Galeria> getAllAlbumesByUsuario(long idUsuario) {
+	public List<Galeria> getAllGaleriasByUsuario(long idUsuario) {
 		
 		logger.info("getAllAlbumesByUsuario", "Consutando albumes del usuario id=" + idUsuario);
 		List<Galeria> albumes = null;

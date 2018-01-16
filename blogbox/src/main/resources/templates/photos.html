@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1"/>
-<title>Insert title here</title>
+<meta charset="ISO-8859-1" />
+<title th:text="${'BlogBox - Gallery'}"></title>
+<link href="#" th:href="@{/css/blogbox_style.css}" rel="stylesheet" />
 </head>
 <body>
 
 	<header>
 		<div class="logo">
-			<img src="#" alt="#" />
+			<img src="../static/imgs/logo.jpg" th:src="@{/imgs/logo.jpg}"
+				alt="logo_blogbox" />
 		</div>
-		<a href="" ><img src="" alt="" /></a>
+		<div class="buscar">
+			<img src="../static/imgs/buscar.jpg" th:src="@{/imgs/buscar.jpg}"
+				alt="buscar" />
+		</div>
 	</header>
 
 	<section class="main">
 		<section class="userinfo">
 			<div class="userphoto">
-				<img src="#" alt="#" />
+				<img src="#" th:src="${urlPhoto}" alt="Foto perfil" height="350px" />
 			</div>
 			<div class="info">
-				<h2 class="username"></h2>
-				<h3 class="name"></h3>
-				<p class="datos" id="email" th:text="${}"></p>
-				<p class="datos" id="ciudad"></p>
-				<p class="datos" id="empresa"></p>
-				<p class="slogan"></p>
+				<h2 class="username" th:text="${usuario.nomUsuario}"></h2>
+				<h3 class="name" th:text="${usuario.nombre}"></h3>
+				<p class="datos" id="email" th:text="${usuario.email}"></p>
+				<p class="datos" id="ciudad" th:text="${usuario.direccion.ciudad}"></p>
+				<p class="datos" id="empresa" th:text="${usuario.compania.nombre}"></p>
+				<p class="slogan" id="empresa" th:text="${usuario.compania.bs}"></p>
 			</div>
+			<a class="BB_Button" href="#" th:href="@{/posts?user=__${usuario.id}__}">POSTS</a>
 		</section>
-
-		<section class="articles">
-			<article class="post">
-				<header>
-				<h2 class="username"></h2>
-				<p class="fecha"></p>
-				<h3 class="titulo"></h3>
-				<p class="mensaje"></p>
-				</header>
-			</article>
-		</section>
+		<div class="centered_content">
+			<section class="articles">
+				<div class="miniatura" th:each="photo : ${photos}">
+					<a href="#" th:href="${photo.urlFoto}">
+						<img src="#" th:src="${photo.urlMiniatura}" alt="${photo.titulo}"/>
+					</a>
+				</div>
+			</section>
+		</div>
 	</section>
 
 	<footer>
 		<div class="footerlogo">
-			<img src="#" alt="#" />
+			<img src="../static/imgs/footerlogo.jpg"
+				th:src="@{/imgs/footerlogo.jpg}" alt="footerlogo_blogbox" />
 		</div>
 	</footer>
 

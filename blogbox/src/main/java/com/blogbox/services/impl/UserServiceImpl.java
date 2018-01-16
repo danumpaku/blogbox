@@ -40,26 +40,7 @@ public class UserServiceImpl implements UsersService {
 		try {
 			List<Usuario> usuarios = getAllUsuarios();
 			for (Usuario usuario : usuarios) {
-				
-				Perfil perfil = new Perfil();
-				perfil.setUsuario(usuario);
-				
-				List<Galeria> albums = galleriesService.getAllAlbumesByUsuario(usuario.getId());
-				List<Foto> fotosPerfil = null;
-				
-				if (albums != null && ! albums.isEmpty()) {
-					fotosPerfil = galleriesService.getAllFotosByAlbum(albums.get(0).getId()); 	//TODO se esta asumiendo que el primer album es el de fotos de perfil
-				}
-				
-				if (fotosPerfil != null && ! fotosPerfil.isEmpty()) {
-					perfil.setUrlFotoPerfil(fotosPerfil.get(0).getUrlFoto());
-				}
-				else {
-					logger.info("getAllPerfiles", "El usuario no tiene fotos, se coloca foto por defecto");
-					perfil.setUrlFotoPerfil(DEFAULT_PHOTO);
-				}
-				
-				perfiles.add(perfil);
+				perfiles.add(getPerfil(usuario));
 			}
 			
 			logger.info("getAllPerfiles", "Se obtuvieron " + perfiles.size() + " perfiles");
@@ -94,7 +75,7 @@ public class UserServiceImpl implements UsersService {
 	}
 
 	@Override
-	public Usuario getUsuarioById(long idUsuario) {
+	public Usuario getUsuarioById (long idUsuario) {
 		
 		logger.info("getUsuarioById", "Consutando usuario id=" + idUsuario);
 		
@@ -109,7 +90,7 @@ public class UserServiceImpl implements UsersService {
 				}
 			}
 		}
-		
+				
 		if (usuario != null){
 			logger.info("getUsuarioById", "Usuario encontrado");
 		}
@@ -119,5 +100,41 @@ public class UserServiceImpl implements UsersService {
 		
 		return usuario;
 	}
+	
+	@Override
+	public Perfil getPerfilById (long idUsuario) {
+		logger.info("getPerfilById", "Consutando perfil id=" + idUsuario);
+		return getPerfil(getUsuarioById(idUsuario));
+	}
 
+	private Perfil getPerfil(Usuario usuario){
+		
+		if (usuario == null){
+			logger.info("getPerfil", "usuario = null");
+			return null;
+		}
+		
+		logger.info("getPerfil", "Completando perfil del usuario id=" + usuario.getId());
+		
+		Perfil perfil = new Perfil();
+		perfil.setUsuario(usuario);
+		
+		List<Galeria> albums = galleriesService.getAllGaleriasByUsuario(usuario.getId());
+		List<Foto> fotosPerfil = null;
+		
+		if (albums != null && ! albums.isEmpty()) {
+			fotosPerfil = galleriesService.getAllFotosByAlbum(albums.get(0).getId()); 	//TODO se esta asumiendo que el primer album es el de fotos de perfil
+		}
+		
+		if (fotosPerfil != null && ! fotosPerfil.isEmpty()) {
+			perfil.setUrlFotoPerfil(fotosPerfil.get(0).getUrlFoto());
+		}
+		else {
+			logger.info("getPerfil", "El usuario no tiene fotos, se coloca foto por defecto");
+			perfil.setUrlFotoPerfil(DEFAULT_PHOTO);
+		}
+		
+		return perfil;
+	}
+	
 }
