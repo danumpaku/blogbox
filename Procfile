@@ -1,0 +1,1 @@
+web: java -jar ./target/blogbox-1.0-Release.war
