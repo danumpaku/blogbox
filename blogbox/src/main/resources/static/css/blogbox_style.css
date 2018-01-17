@@ -1,0 +1,183 @@
+@CHARSET "ISO-8859-1";
+@import url("csslab_reseter_v2.css");
+*{
+	margin:0;
+	padding:0;
+	font-family: "Verdana";
+	color: #FFFFFF;
+}
+
+body {
+	background:#FFFFFF;
+}
+
+header {
+	background:#2495F3;
+	overflow: hidden;
+	box-shadow: 0px 5px #88888888;
+	height:100px;
+	
+}
+
+.centered_content {
+	width:65%;
+	margin:auto;
+	padding: 40px 0px;
+}
+
+footer {
+	background:#0B0B09;
+	height:52px;
+	margin:0px;
+	padding:0px;
+	text-align: center;
+}
+
+.footerlogo {
+	display:block;
+	height:52px;
+	margin:0px;
+	padding:0px;
+}
+
+.usuarios {
+	list-style:none;
+}
+
+.usuarios li {
+	display: block;
+	margin: 40px 0px;
+	box-shadow: 5px 5px #88888888;
+	cursor: pointer;
+}
+
+.usuarios li:hover {
+	opacity:0.5;
+}
+
+.usuarioBackground {
+	height: 290px;
+	padding: 40px 50px;
+}
+
+.logo {
+	float:left;
+	cursor: pointer;
+}
+
+.logo:hover {
+	opacity:0.5;
+}
+
+.buscar {
+	float:right;
+	cursor: pointer;
+	border: 1px solid #FFFFFF;
+}
+
+.buscar:hover {
+	opacity:0.5;
+}
+
+.geo_simbol {
+	height: 20px;
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+.city {
+	display: block;
+	float: left;
+	font-size: 14pt;
+}
+
+.geo{
+	overflow: hidden;
+}
+
+.username{
+	font-size: 24pt;
+	font-style: bold;
+}
+	
+.usuarios li a{
+	text-decoration: none;
+}
+
+.userinfo {
+	border: 1px solid #777777;
+	overflow: hidden;
+}
+
+.userinfo * {
+	color: #0B0B09;
+}
+
+.userphoto {
+	display: inline-block;
+	width: 30%;
+	background-size: cover;
+}
+
+.userinfo .info{
+	padding: 30px 10px;
+	display: inline-block;
+}
+
+.BB_Button {
+	background: #2495F3;
+	padding: 40px;
+	color:#FFFFFF;
+	text-decoration: none;
+	display: block;
+	float: right;
+}
+
+.BB_Button:hover {
+	opacity:0.5;
+}
+
+.post {
+	margin-top: 40px;
+	margin-top: 40px;
+	background-color: #FFFFFF;
+	border: 1px solid #AAAAAA;
+	box-shadow: 1px 5px #88888888;
+	padding: 20px;
+	
+}
+
+.post * {
+	background-color: #FFFFFF;
+	color:  #0B0B09;
+}
+
+.post a {
+	text-decoration: none;
+}
+
+.post .username {
+	font-size: 18px;
+	padding: 10px 0px;
+}
+
+.post .mensaje {
+	padding: 20px 0px;
+}
+
+.miniatura {
+	margin: 20px;
+	height: 150px;
+	width: 150px;
+	display: block;
+	float: left;
+}
+
+.articles {
+	overflow: hidden;
+}
+
+.miniatura : hover {
+	opacity: 0.5;
+}
